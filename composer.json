@@ -41,7 +41,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ConsolidatedWitchcraft\\BindingEngineConflicts\\": "src/"
+            "ConsolidatedWitchcraft\\BindingEngine\\Conflicts\\": "src/"
         }
     },
     "authors": [
@@ -65,7 +65,8 @@
         "friendsofphp/php-cs-fixer": "dev-master",
         "pestphp/pest": "5.x-dev",
         "phpstan/phpstan": "2.2.x-dev",
-        "symfony/var-dumper": "8.1.x-dev"
+        "symfony/var-dumper": "8.1.x-dev",
+        "mockery/mockery": "2.0.x-dev"
     },
     "config": {
         "allow-plugins": {
