@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace ConsolidatedWitchcraft\BindingEngine\Conflicts;
 
-final readonly class ConflictSet implements \Countable
+use ConsolidatedWitchcraft\BindingEngine\Conflicts\Interfaces\ConflictSetInterface;
+
+final readonly class ConflictSet implements ConflictSetInterface
 {
     /**
      * @param list<Conflict> $conflicts

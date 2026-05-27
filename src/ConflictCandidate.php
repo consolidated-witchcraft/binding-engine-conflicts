@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace ConsolidatedWitchcraft\BindingEngine\Conflicts;
 
+use ConsolidatedWitchcraft\BindingEngine\Conflicts\Interfaces\ConflictCandidateInterface;
 use ConsolidatedWitchcraft\BindingEngine\Projection\Interfaces\ProjectionInterface;
 
-final readonly class ConflictCandidate
+final readonly class ConflictCandidate implements ConflictCandidateInterface
 {
     public function __construct(
         private string $value,

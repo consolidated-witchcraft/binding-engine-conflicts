@@ -7,8 +7,9 @@ namespace ConsolidatedWitchcraft\BindingEngine\Conflicts;
 use ConsolidatedWitchcraft\BindingEngine\Conflicts\Enums\ConflictSeverityEnum;
 use ConsolidatedWitchcraft\BindingEngine\Conflicts\Enums\ConflictTypeEnum;
 use ConsolidatedWitchcraft\BindingEngine\Conflicts\Exceptions\InvalidConflictException;
+use ConsolidatedWitchcraft\BindingEngine\Conflicts\Interfaces\ConflictInterface;
 
-final readonly class Conflict
+final readonly class Conflict implements ConflictInterface
 {
     /**
      * @param list<ConflictCandidate> $candidates
