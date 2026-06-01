@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace ConsolidatedWitchcraft\BindingEngine\Conflicts;
 
+use ConsolidatedWitchcraft\BindingEngine\Conflicts\Interfaces\ConflictInterface;
 use ConsolidatedWitchcraft\BindingEngine\Conflicts\Interfaces\ConflictSetInterface;
 
 final readonly class ConflictSet implements ConflictSetInterface
 {
     /**
-     * @param list<Conflict> $conflicts
+     * @param list<ConflictInterface> $conflicts
      */
     public function __construct(
         private array $conflicts,
@@ -17,7 +18,7 @@ final readonly class ConflictSet implements ConflictSetInterface
     }
 
     /**
-     * @return list<Conflict>
+     * @return list<ConflictInterface>
      */
     public function getConflicts(): array
     {
@@ -34,7 +35,7 @@ final readonly class ConflictSet implements ConflictSetInterface
         return count($this->conflicts);
     }
 
-    public function first(): ?Conflict
+    public function first(): ?ConflictInterface
     {
         return $this->conflicts[0] ?? null;
     }
