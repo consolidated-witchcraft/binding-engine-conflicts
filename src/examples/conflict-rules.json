@@ -1,0 +1,10 @@
+{
+  "rules": [
+    {
+      "type": "relationship_cardinality",
+      "relationshipType": "born_in",
+      "direction": "unique_object_per_subject",
+      "severity": "manual_resolution_required"
+    }
+  ]
+}
