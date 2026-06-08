@@ -199,3 +199,29 @@ it('rejects unknown rule types', function () {
         'Unknown conflict rule type "unknown_rule" at "rules[0].type".',
     );
 });
+
+use ConsolidatedWitchcraft\BindingEngine\Conflicts\Rules\RelationshipCardinalityConflictRule;
+use ConsolidatedWitchcraft\BindingEngine\Conflicts\Rules\RelationshipCardinalityConflictRuleDefinition;
+
+it('loads a relationship cardinality rule from json', function () {
+    $loader = new JsonConflictRuleLoader([
+        new RelationshipCardinalityConflictRuleDefinition(),
+    ]);
+
+    $rules = $loader->load(json_encode([
+        'rules' => [
+            [
+                'type' => 'relationship_cardinality',
+                'relationshipType' => 'born_in',
+                'direction' => 'unique_object_per_subject',
+                'severity' => 'manual_resolution_required',
+            ],
+        ],
+    ], JSON_THROW_ON_ERROR));
+
+    expect($rules)->toHaveCount(1)
+        ->and($rules[0])->toBeInstanceOf(RelationshipCardinalityConflictRule::class)
+        ->and($rules[0]->getIdentifier())->toBe(
+            'relationship_cardinality.born_in.unique_object_per_subject',
+        );
+});
